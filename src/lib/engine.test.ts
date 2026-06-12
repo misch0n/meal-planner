@@ -5,6 +5,7 @@ import { toGrams } from "./conversion";
 import { balanceMemberDay, generatePlan, MIN_PORTION, MAX_PORTION } from "./planner";
 import { buildShoppingList } from "./shopping";
 import { deficitSeries, dateRange, rollup } from "./analytics";
+import { VOLUME_MEASURES } from "./measures";
 import type { Ingredient, MealPlan, Member, Recipe } from "../types";
 
 const chicken: Ingredient = {
@@ -59,6 +60,14 @@ describe("conversion engine", () => {
   });
   it("returns null when density is missing", () => {
     expect(toGrams(100, "ml", rice)).toBeNull();
+  });
+  it("converts standard volume measures to grams via density", () => {
+    const tbsp = VOLUME_MEASURES.find((m) => m.label.startsWith("1 tablespoon"))!;
+    // 1 US tbsp (14.7868 ml) of olive oil (0.91 g/ml) ≈ 13.46 g
+    expect(tbsp.ml * oil.density_g_per_ml!).toBeCloseTo(13.46, 1);
+    const cup = VOLUME_MEASURES.find((m) => m.label.startsWith("1 cup"))!;
+    // 1 US cup of water (1 g/ml) ≈ 236.6 g
+    expect(cup.ml * 1.0).toBeCloseTo(236.6, 1);
   });
 });
 

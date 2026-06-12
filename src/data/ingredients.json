@@ -1492,7 +1492,8 @@
       "vit_a_rae": 684,
       "vit_d": 1.5,
       "vit_e": 2.32
-    }
+    },
+    "density_g_per_ml": 0.911
   },
   {
     "id": "ing_cream_heavy",
@@ -2205,7 +2206,8 @@
       "zinc": 2.9,
       "niacin": 13.7,
       "vit_e": 9
-    }
+    },
+    "density_g_per_ml": 1.08
   },
   {
     "id": "ing_rice_white",
@@ -2229,7 +2231,8 @@
       "selenium": 15.1,
       "thiamin": 0.07,
       "niacin": 1.6
-    }
+    },
+    "density_g_per_ml": 0.85
   },
   {
     "id": "ing_rice_brown",
@@ -2252,7 +2255,8 @@
       "manganese": 3.74,
       "niacin": 5,
       "vit_b6": 0.51
-    }
+    },
+    "density_g_per_ml": 0.82
   },
   {
     "id": "ing_pasta_dry",
@@ -2301,7 +2305,8 @@
       "zinc": 3.97,
       "manganese": 4.92,
       "thiamin": 0.76
-    }
+    },
+    "density_g_per_ml": 0.41
   },
   {
     "id": "ing_bread_white",
@@ -2379,7 +2384,8 @@
       "selenium": 33.9,
       "thiamin": 0.78,
       "folate": 291
-    }
+    },
+    "density_g_per_ml": 0.53
   },
   {
     "id": "ing_quinoa_cooked",
@@ -2463,7 +2469,8 @@
       "magnesium": 127,
       "phosphorus": 241,
       "zinc": 1.82
-    }
+    },
+    "density_g_per_ml": 0.6
   },
   {
     "id": "ing_breadcrumbs",
@@ -2483,7 +2490,8 @@
       "magnesium": 40,
       "phosphorus": 162,
       "selenium": 25
-    }
+    },
+    "density_g_per_ml": 0.4
   },
   {
     "id": "ing_almonds",
@@ -2512,7 +2520,8 @@
       "manganese": 2.18,
       "vit_e": 25.6,
       "riboflavin": 1.14
-    }
+    },
+    "density_g_per_ml": 0.6
   },
   {
     "id": "ing_walnuts",
@@ -2539,7 +2548,8 @@
       "copper": 1.59,
       "manganese": 3.41,
       "folate": 98
-    }
+    },
+    "density_g_per_ml": 0.42
   },
   {
     "id": "ing_cashews",
@@ -2564,7 +2574,8 @@
       "zinc": 5.78,
       "copper": 2.2,
       "manganese": 1.66
-    }
+    },
+    "density_g_per_ml": 0.55
   },
   {
     "id": "ing_peanuts",
@@ -2591,7 +2602,8 @@
       "niacin": 12.1,
       "vit_e": 8.3,
       "folate": 240
-    }
+    },
+    "density_g_per_ml": 0.62
   },
   {
     "id": "ing_hazelnuts",
@@ -2615,7 +2627,8 @@
       "phosphorus": 290,
       "manganese": 6.18,
       "vit_e": 15
-    }
+    },
+    "density_g_per_ml": 0.5
   },
   {
     "id": "ing_pistachios",
@@ -2638,7 +2651,8 @@
       "phosphorus": 490,
       "zinc": 2.2,
       "vit_b6": 1.7
-    }
+    },
+    "density_g_per_ml": 0.5
   },
   {
     "id": "ing_chia_seeds",
@@ -2661,7 +2675,8 @@
       "magnesium": 335,
       "phosphorus": 860,
       "zinc": 4.58
-    }
+    },
+    "density_g_per_ml": 0.7
   },
   {
     "id": "ing_flax_seeds",
@@ -2684,7 +2699,8 @@
       "magnesium": 392,
       "phosphorus": 642,
       "thiamin": 1.64
-    }
+    },
+    "density_g_per_ml": 0.65
   },
   {
     "id": "ing_sunflower_seeds",
@@ -2708,7 +2724,8 @@
       "zinc": 5,
       "vit_e": 35.2,
       "folate": 227
-    }
+    },
+    "density_g_per_ml": 0.56
   },
   {
     "id": "ing_pumpkin_seeds",
@@ -2730,7 +2747,8 @@
       "magnesium": 592,
       "phosphorus": 1233,
       "zinc": 7.81
-    }
+    },
+    "density_g_per_ml": 0.53
   },
   {
     "id": "ing_olive_oil",
@@ -2821,7 +2839,8 @@
       "cholesterol": 95,
       "vit_d": 2.5,
       "vit_e": 0.6
-    }
+    },
+    "density_g_per_ml": 0.919
   },
   {
     "id": "ing_margarine",
@@ -3042,7 +3061,8 @@
       "iron": 0.33,
       "potassium": 8,
       "zinc": 0.1
-    }
+    },
+    "density_g_per_ml": 1.22
   },
   {
     "id": "ing_paprika",
@@ -3253,7 +3273,8 @@
       "sodium": 1,
       "calcium": 1,
       "potassium": 2
-    }
+    },
+    "density_g_per_ml": 0.85
   },
   {
     "id": "ing_brown_sugar",
@@ -3271,7 +3292,8 @@
       "calcium": 83,
       "iron": 0.71,
       "magnesium": 9
-    }
+    },
+    "density_g_per_ml": 0.93
   },
   {
     "id": "ing_honey",
@@ -3432,6 +3454,20 @@
       "magnesium": 12
     },
     "density_g_per_ml": 1.06
+  },
+  {
+    "id": "ing_water",
+    "name": "Water",
+    "category": "beverage",
+    "source": "usda",
+    "per_100g": {
+      "kcal": 0,
+      "protein": 0,
+      "carb": 0,
+      "fat": 0,
+      "sodium": 0
+    },
+    "density_g_per_ml": 1
   },
   {
     "id": "ing_orange_juice",

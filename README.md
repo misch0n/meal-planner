@@ -13,7 +13,7 @@ in your browser's local storage with JSON export/import as the backup path.
 | Subsystem | What it does |
 |---|---|
 | **Ingredients** | Curated CIQUAL/USDA-style base products + manual entry. Per-100 g nutrition, optional density & piece-weight conversion data. |
-| **Converter** | Standalone, always-available g ↔ ml (density) and g ↔ pieces (piece weights) for any ingredient. |
+| **Converter** | Standalone tool: standard kitchen volume measures (tsp, tbsp, fl oz, ¼/⅓/½/¾ cup, pint, metric cup…) → grams via density, plus a per-measure reference table and piece → mass. Solids/powders flagged approximate. |
 | **Recipes** | Composer with grams/volume/piece entry (converts to grams on save) + live macro analytics. Doubles as a standalone analyzer. |
 | **Household** | Per-member profiles; Mifflin–St Jeor BMR/TDEE and macro targets; `custom_targets` bypass. |
 | **Planner** | Per-member constrained-random plan; portion scaling to hit targets within 0.5×–2.0× or flag the day unbalanceable. Swaps re-roll + re-balance. Status machine DRAFT → APPROVED → CART_READY → ORDERED. |

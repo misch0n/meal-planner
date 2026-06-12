@@ -202,7 +202,7 @@ f("ing_kashkaval", "Yellow cheese (kashkaval)", "dairy",
   { source: "manual", local: "кашкавал" });
 f("ing_butter", "Butter, salted", "fat",
   { kcal: 717, protein: 0.85, carb: 0.06, fat: 81.1, sat_fat: 51.4, mono_fat: 21, poly_fat: 3, cholesterol: 215, sodium: 643, calcium: 24, vit_a_rae: 684, vit_d: 1.5, vit_e: 2.32 },
-  { ref: "SR-01001" });
+  { ref: "SR-01001", density: 0.911 });
 f("ing_cream_heavy", "Cream, heavy whipping", "dairy",
   { kcal: 340, protein: 2.8, carb: 2.8, fat: 36, sat_fat: 23, cholesterol: 113, sodium: 27, potassium: 95, calcium: 66, vit_a_rae: 411, vit_d: 1.3 },
   { density: 0.994 });
@@ -282,20 +282,21 @@ f("ing_hummus", "Hummus", "legume",
   { kcal: 166, protein: 7.9, carb: 14.3, fat: 9.6, fiber: 6, sat_fat: 1.4, sodium: 379, potassium: 228, calcium: 38, iron: 2.4, magnesium: 71, folate: 83 });
 f("ing_peanut_butter", "Peanut butter, smooth", "nut",
   { kcal: 588, protein: 25.1, carb: 20, fat: 50.4, fiber: 6, sugar: 9.2, sat_fat: 10.3, mono_fat: 24.5, poly_fat: 13.7, sodium: 459, potassium: 558, calcium: 49, iron: 1.74, magnesium: 168, phosphorus: 335, zinc: 2.9, niacin: 13.7, vit_e: 9 },
-  { ref: "SR-16098" });
+  { ref: "SR-16098", density: 1.08 });
 
 // ── GRAINS & STARCHES ────────────────────────────────────────────────────────
 f("ing_rice_white", "Rice, white, long-grain, raw", "grain",
   { kcal: 365, protein: 7.1, carb: 80, fat: 0.66, fiber: 1.3, sodium: 5, potassium: 115, calcium: 28, iron: 0.8, magnesium: 25, phosphorus: 115, zinc: 1.09, selenium: 15.1, thiamin: 0.07, niacin: 1.6 },
-  { ref: "SR-20444" });
+  { ref: "SR-20444", density: 0.85 });
 f("ing_rice_brown", "Rice, brown, long-grain, raw", "grain",
-  { kcal: 370, protein: 7.9, carb: 77.2, fat: 2.9, fiber: 3.5, sodium: 7, potassium: 223, calcium: 23, iron: 1.47, magnesium: 143, phosphorus: 333, zinc: 2.02, manganese: 3.74, niacin: 5, vit_b6: 0.51 });
+  { kcal: 370, protein: 7.9, carb: 77.2, fat: 2.9, fiber: 3.5, sodium: 7, potassium: 223, calcium: 23, iron: 1.47, magnesium: 143, phosphorus: 333, zinc: 2.02, manganese: 3.74, niacin: 5, vit_b6: 0.51 },
+  { density: 0.82 });
 f("ing_pasta_dry", "Pasta, dry, enriched", "grain",
   { kcal: 371, protein: 13, carb: 74.7, fat: 1.5, fiber: 3.2, sugar: 2.7, sodium: 6, potassium: 223, calcium: 21, iron: 3.3, magnesium: 53, phosphorus: 189, zinc: 1.4, selenium: 63, thiamin: 0.9, folate: 145 },
   { ref: "SR-20121" });
 f("ing_oats", "Oats, rolled, raw", "grain",
   { kcal: 389, protein: 16.9, carb: 66.3, fat: 6.9, fiber: 10.6, sugar: 0, sodium: 2, potassium: 429, calcium: 54, iron: 4.72, magnesium: 177, phosphorus: 523, zinc: 3.97, manganese: 4.92, thiamin: 0.76 },
-  { ref: "SR-20038" });
+  { ref: "SR-20038", density: 0.41 });
 f("ing_bread_white", "Bread, white, commercial", "grain",
   { kcal: 266, protein: 9, carb: 49, fat: 3.3, fiber: 2.7, sugar: 5.7, sat_fat: 0.72, sodium: 491, potassium: 115, calcium: 144, iron: 3.61, magnesium: 24, phosphorus: 99, selenium: 22, thiamin: 0.51, folate: 137 },
   { ref: "SR-18069", pieces: { slice: 30 } });
@@ -303,7 +304,8 @@ f("ing_bread_wholewheat", "Bread, whole-wheat", "grain",
   { kcal: 247, protein: 13, carb: 41, fat: 3.5, fiber: 7, sugar: 6, sodium: 450, potassium: 254, calcium: 107, iron: 2.5, magnesium: 75, phosphorus: 202, zinc: 1.8, selenium: 31, niacin: 4.4 },
   { pieces: { slice: 32 } });
 f("ing_flour_wheat", "Wheat flour, all-purpose", "grain",
-  { kcal: 364, protein: 10.3, carb: 76.3, fat: 0.98, fiber: 2.7, sugar: 0.3, sodium: 2, potassium: 107, calcium: 15, iron: 4.64, magnesium: 22, phosphorus: 108, zinc: 0.7, selenium: 33.9, thiamin: 0.78, folate: 291 });
+  { kcal: 364, protein: 10.3, carb: 76.3, fat: 0.98, fiber: 2.7, sugar: 0.3, sodium: 2, potassium: 107, calcium: 15, iron: 4.64, magnesium: 22, phosphorus: 108, zinc: 0.7, selenium: 33.9, thiamin: 0.78, folate: 291 },
+  { density: 0.53 });
 f("ing_quinoa_cooked", "Quinoa, cooked", "grain",
   { kcal: 120, protein: 4.4, carb: 21.3, fat: 1.9, fiber: 2.8, sugar: 0.9, sodium: 7, potassium: 172, calcium: 17, iron: 1.49, magnesium: 64, phosphorus: 152, zinc: 1.09, manganese: 0.63, folate: 42 });
 f("ing_couscous_cooked", "Couscous, cooked", "grain",
@@ -311,32 +313,43 @@ f("ing_couscous_cooked", "Couscous, cooked", "grain",
 f("ing_corn_tortilla", "Corn tortilla", "grain",
   { kcal: 218, protein: 5.7, carb: 44.6, fat: 2.85, fiber: 6.3, sodium: 45, potassium: 186, calcium: 81, iron: 1.23, magnesium: 72, phosphorus: 215, zinc: 1.1 });
 f("ing_cornmeal", "Cornmeal, whole-grain", "grain",
-  { kcal: 362, protein: 8.1, carb: 76.9, fat: 3.6, fiber: 7.3, sodium: 35, potassium: 287, calcium: 7, iron: 3.45, magnesium: 127, phosphorus: 241, zinc: 1.82 });
+  { kcal: 362, protein: 8.1, carb: 76.9, fat: 3.6, fiber: 7.3, sodium: 35, potassium: 287, calcium: 7, iron: 3.45, magnesium: 127, phosphorus: 241, zinc: 1.82 },
+  { density: 0.6 });
 f("ing_breadcrumbs", "Breadcrumbs, dry", "grain",
-  { kcal: 395, protein: 13.4, carb: 71.9, fat: 5.3, fiber: 4.5, sugar: 6.2, sodium: 732, calcium: 183, iron: 4.83, magnesium: 40, phosphorus: 162, selenium: 25 });
+  { kcal: 395, protein: 13.4, carb: 71.9, fat: 5.3, fiber: 4.5, sugar: 6.2, sodium: 732, calcium: 183, iron: 4.83, magnesium: 40, phosphorus: 162, selenium: 25 },
+  { density: 0.4 });
 
 // ── NUTS & SEEDS ─────────────────────────────────────────────────────────────
 f("ing_almonds", "Almonds", "nut",
   { kcal: 579, protein: 21.2, carb: 21.6, fat: 49.9, fiber: 12.5, sugar: 4.4, sat_fat: 3.8, mono_fat: 31.6, poly_fat: 12.3, sodium: 1, potassium: 733, calcium: 269, iron: 3.71, magnesium: 270, phosphorus: 481, zinc: 3.12, copper: 1.03, manganese: 2.18, vit_e: 25.6, riboflavin: 1.14 },
-  { ref: "SR-12061" });
+  { ref: "SR-12061", density: 0.6 });
 f("ing_walnuts", "Walnuts, English", "nut",
-  { kcal: 654, protein: 15.2, carb: 13.7, fat: 65.2, fiber: 6.7, sugar: 2.6, sat_fat: 6.1, mono_fat: 8.9, poly_fat: 47.2, sodium: 2, potassium: 441, calcium: 98, iron: 2.91, magnesium: 158, phosphorus: 346, zinc: 3.09, copper: 1.59, manganese: 3.41, folate: 98 });
+  { kcal: 654, protein: 15.2, carb: 13.7, fat: 65.2, fiber: 6.7, sugar: 2.6, sat_fat: 6.1, mono_fat: 8.9, poly_fat: 47.2, sodium: 2, potassium: 441, calcium: 98, iron: 2.91, magnesium: 158, phosphorus: 346, zinc: 3.09, copper: 1.59, manganese: 3.41, folate: 98 },
+  { density: 0.42 });
 f("ing_cashews", "Cashews, raw", "nut",
-  { kcal: 553, protein: 18.2, carb: 30.2, fat: 43.9, fiber: 3.3, sugar: 5.9, sat_fat: 7.8, mono_fat: 23.8, sodium: 12, potassium: 660, calcium: 37, iron: 6.68, magnesium: 292, phosphorus: 593, zinc: 5.78, copper: 2.2, manganese: 1.66 });
+  { kcal: 553, protein: 18.2, carb: 30.2, fat: 43.9, fiber: 3.3, sugar: 5.9, sat_fat: 7.8, mono_fat: 23.8, sodium: 12, potassium: 660, calcium: 37, iron: 6.68, magnesium: 292, phosphorus: 593, zinc: 5.78, copper: 2.2, manganese: 1.66 },
+  { density: 0.55 });
 f("ing_peanuts", "Peanuts, raw", "nut",
-  { kcal: 567, protein: 25.8, carb: 16.1, fat: 49.2, fiber: 8.5, sugar: 4, sat_fat: 6.3, mono_fat: 24.4, poly_fat: 15.6, sodium: 18, potassium: 705, calcium: 92, iron: 4.58, magnesium: 168, phosphorus: 376, zinc: 3.27, niacin: 12.1, vit_e: 8.3, folate: 240 });
+  { kcal: 567, protein: 25.8, carb: 16.1, fat: 49.2, fiber: 8.5, sugar: 4, sat_fat: 6.3, mono_fat: 24.4, poly_fat: 15.6, sodium: 18, potassium: 705, calcium: 92, iron: 4.58, magnesium: 168, phosphorus: 376, zinc: 3.27, niacin: 12.1, vit_e: 8.3, folate: 240 },
+  { density: 0.62 });
 f("ing_hazelnuts", "Hazelnuts", "nut",
-  { kcal: 628, protein: 15, carb: 16.7, fat: 60.8, fiber: 9.7, sugar: 4.3, sat_fat: 4.5, mono_fat: 45.7, sodium: 0, potassium: 680, calcium: 114, iron: 4.7, magnesium: 163, phosphorus: 290, manganese: 6.18, vit_e: 15 });
+  { kcal: 628, protein: 15, carb: 16.7, fat: 60.8, fiber: 9.7, sugar: 4.3, sat_fat: 4.5, mono_fat: 45.7, sodium: 0, potassium: 680, calcium: 114, iron: 4.7, magnesium: 163, phosphorus: 290, manganese: 6.18, vit_e: 15 },
+  { density: 0.5 });
 f("ing_pistachios", "Pistachios, raw", "nut",
-  { kcal: 560, protein: 20.2, carb: 27.2, fat: 45.3, fiber: 10.6, sugar: 7.7, sat_fat: 5.9, sodium: 1, potassium: 1025, calcium: 105, iron: 3.92, magnesium: 121, phosphorus: 490, zinc: 2.2, vit_b6: 1.7 });
+  { kcal: 560, protein: 20.2, carb: 27.2, fat: 45.3, fiber: 10.6, sugar: 7.7, sat_fat: 5.9, sodium: 1, potassium: 1025, calcium: 105, iron: 3.92, magnesium: 121, phosphorus: 490, zinc: 2.2, vit_b6: 1.7 },
+  { density: 0.5 });
 f("ing_chia_seeds", "Chia seeds", "nut",
-  { kcal: 486, protein: 16.5, carb: 42.1, fat: 30.7, fiber: 34.4, sugar: 0, sat_fat: 3.3, poly_fat: 23.7, sodium: 16, potassium: 407, calcium: 631, iron: 7.72, magnesium: 335, phosphorus: 860, zinc: 4.58 });
+  { kcal: 486, protein: 16.5, carb: 42.1, fat: 30.7, fiber: 34.4, sugar: 0, sat_fat: 3.3, poly_fat: 23.7, sodium: 16, potassium: 407, calcium: 631, iron: 7.72, magnesium: 335, phosphorus: 860, zinc: 4.58 },
+  { density: 0.7 });
 f("ing_flax_seeds", "Flaxseeds", "nut",
-  { kcal: 534, protein: 18.3, carb: 28.9, fat: 42.2, fiber: 27.3, sugar: 1.6, sat_fat: 3.66, poly_fat: 28.7, sodium: 30, potassium: 813, calcium: 255, iron: 5.73, magnesium: 392, phosphorus: 642, thiamin: 1.64 });
+  { kcal: 534, protein: 18.3, carb: 28.9, fat: 42.2, fiber: 27.3, sugar: 1.6, sat_fat: 3.66, poly_fat: 28.7, sodium: 30, potassium: 813, calcium: 255, iron: 5.73, magnesium: 392, phosphorus: 642, thiamin: 1.64 },
+  { density: 0.65 });
 f("ing_sunflower_seeds", "Sunflower seeds, kernels", "nut",
-  { kcal: 584, protein: 20.8, carb: 20, fat: 51.5, fiber: 8.6, sugar: 2.6, sat_fat: 4.5, sodium: 9, potassium: 645, calcium: 78, iron: 5.25, magnesium: 325, phosphorus: 660, zinc: 5, vit_e: 35.2, folate: 227 });
+  { kcal: 584, protein: 20.8, carb: 20, fat: 51.5, fiber: 8.6, sugar: 2.6, sat_fat: 4.5, sodium: 9, potassium: 645, calcium: 78, iron: 5.25, magnesium: 325, phosphorus: 660, zinc: 5, vit_e: 35.2, folate: 227 },
+  { density: 0.56 });
 f("ing_pumpkin_seeds", "Pumpkin seeds, kernels", "nut",
-  { kcal: 559, protein: 30.2, carb: 10.7, fat: 49, fiber: 6, sugar: 1.4, sat_fat: 8.7, sodium: 7, potassium: 809, calcium: 46, iron: 8.82, magnesium: 592, phosphorus: 1233, zinc: 7.81 });
+  { kcal: 559, protein: 30.2, carb: 10.7, fat: 49, fiber: 6, sugar: 1.4, sat_fat: 8.7, sodium: 7, potassium: 809, calcium: 46, iron: 8.82, magnesium: 592, phosphorus: 1233, zinc: 7.81 },
+  { density: 0.53 });
 
 // ── FATS & OILS ──────────────────────────────────────────────────────────────
 f("ing_olive_oil", "Olive oil, extra virgin", "fat",
@@ -352,7 +365,8 @@ f("ing_canola_oil", "Canola (rapeseed) oil", "fat",
   { kcal: 884, protein: 0, carb: 0, fat: 100, sat_fat: 7.4, mono_fat: 63.3, poly_fat: 28.1, vit_e: 17.5, vit_k: 71.3 },
   { density: 0.92 });
 f("ing_lard", "Lard (pork fat)", "fat",
-  { kcal: 902, protein: 0, carb: 0, fat: 100, sat_fat: 39.2, mono_fat: 45.1, poly_fat: 11.2, cholesterol: 95, vit_d: 2.5, vit_e: 0.6 });
+  { kcal: 902, protein: 0, carb: 0, fat: 100, sat_fat: 39.2, mono_fat: 45.1, poly_fat: 11.2, cholesterol: 95, vit_d: 2.5, vit_e: 0.6 },
+  { density: 0.919 });
 f("ing_margarine", "Margarine, regular", "fat",
   { kcal: 717, protein: 0.16, carb: 0.7, fat: 80.7, sat_fat: 15.9, mono_fat: 38, poly_fat: 24.3, sodium: 751, vit_a_rae: 819, vit_e: 9, vit_k: 93 });
 
@@ -378,7 +392,8 @@ f("ing_chives", "Chives, fresh", "herb",
 f("ing_black_pepper", "Black pepper, ground", "spice",
   { kcal: 251, protein: 10.4, carb: 64, fat: 3.3, fiber: 25.3, sodium: 20, potassium: 1329, calcium: 443, iron: 9.71, magnesium: 171, manganese: 12.75, vit_k: 163.7 });
 f("ing_salt", "Salt, table", "spice",
-  { kcal: 0, protein: 0, carb: 0, fat: 0, sodium: 38758, calcium: 24, iron: 0.33, potassium: 8, zinc: 0.1 });
+  { kcal: 0, protein: 0, carb: 0, fat: 0, sodium: 38758, calcium: 24, iron: 0.33, potassium: 8, zinc: 0.1 },
+  { density: 1.22 });
 f("ing_paprika", "Paprika", "spice",
   { kcal: 282, protein: 14.1, carb: 54, fat: 12.9, fiber: 34.9, sodium: 68, potassium: 2280, calcium: 229, iron: 21.1, magnesium: 178, vit_a_rae: 2463, vit_e: 29.1, vit_b6: 2.14 });
 f("ing_cumin", "Cumin, ground", "spice",
@@ -403,9 +418,10 @@ f("ing_bay_leaf", "Bay leaf, dried", "spice",
 // ── SWEETENERS & CONDIMENTS ──────────────────────────────────────────────────
 f("ing_sugar", "Sugar, granulated white", "sweetener",
   { kcal: 387, protein: 0, carb: 100, fat: 0, sugar: 99.8, sodium: 1, calcium: 1, potassium: 2 },
-  { ref: "SR-19335" });
+  { ref: "SR-19335", density: 0.85 });
 f("ing_brown_sugar", "Sugar, brown", "sweetener",
-  { kcal: 380, protein: 0.12, carb: 98.1, fat: 0, sugar: 97, sodium: 28, potassium: 133, calcium: 83, iron: 0.71, magnesium: 9 });
+  { kcal: 380, protein: 0.12, carb: 98.1, fat: 0, sugar: 97, sodium: 28, potassium: 133, calcium: 83, iron: 0.71, magnesium: 9 },
+  { density: 0.93 });
 f("ing_honey", "Honey", "sweetener",
   { kcal: 304, protein: 0.3, carb: 82.4, fat: 0, fiber: 0.2, sugar: 82.1, sodium: 4, potassium: 52, calcium: 6, iron: 0.42, vit_c: 0.5 },
   { ref: "SR-19296", density: 1.42 });
@@ -430,6 +446,9 @@ f("ing_vinegar_balsamic", "Vinegar, balsamic", "condiment",
   { density: 1.06 });
 
 // ── BEVERAGES ────────────────────────────────────────────────────────────────
+f("ing_water", "Water", "beverage",
+  { kcal: 0, protein: 0, carb: 0, fat: 0, sodium: 0 },
+  { density: 1.0 });
 f("ing_orange_juice", "Orange juice, raw", "beverage",
   { kcal: 45, protein: 0.7, carb: 10.4, fat: 0.2, fiber: 0.2, sugar: 8.4, sodium: 1, potassium: 200, calcium: 11, vit_c: 50, folate: 30 },
   { density: 1.04 });
