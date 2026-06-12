@@ -67,13 +67,36 @@ src/
 The `lib/` engine has no React or DOM dependencies and is covered by
 `src/lib/engine.test.ts`.
 
+## Ingredient dataset
+
+`src/data/ingredients.json` ships **~180 base foods across every category**
+(vegetables, fruits, dairy & eggs, meat, fish, legumes, grains, nuts & seeds,
+fats, fresh herbs, spices, sweeteners, condiments, beverages) plus a **treats
+reference section** (chips, chocolate, soda… approximate by design). Each food
+carries a full nutrient panel — macros plus up to ~27 micronutrients
+(minerals + vitamins) — with any unknown value simply omitted.
+
+The data is **generated**, not hand-maintained as JSON. The editable source is
+`scripts/curated-foods.mjs` (canonical USDA FoodData Central per-100 g values):
+
+```bash
+node scripts/build-ingredients.mjs          # regenerate from curated values
+FDC_API_KEY=xxxx node scripts/build-ingredients.mjs --usda   # pull live full panel
+```
+
+The `--usda` mode maps each food's `source_ref` (FDC id) to the live FoodData
+Central record and overwrites `per_100g` with every nutrient USDA reports
+(requires a free key from https://fdc.nal.usda.gov/api-key-signup.html and
+network access to `api.nal.usda.gov`). Nutrient keys/units are defined once in
+`src/lib/nutrients.ts` so the curated data, the fetcher, and the UI all agree.
+
 ## Data sources & attribution
 
-Nutrition data is derived from **Anses. Ciqual French food composition table**
-(French *Open Licence* / Etalab) and the public-domain **USDA FoodData Central**.
-Density and piece-weight conversion data are sourced separately from standard
-food references. The bundled dataset in this build is a curated starter sample,
-not the full CIQUAL table.
+Nutrition values are canonical figures from the public-domain **USDA FoodData
+Central** (SR Legacy / Foundation Foods), with **Anses. Ciqual** as a secondary
+reference. Density and piece-weight conversion data are sourced separately from
+standard food references. Treat values are approximate references, not
+lab-precise.
 
 Daily-needs calculations use the Mifflin–St Jeor equation — a general estimate
 for able-bodied adults, **not medical advice**.

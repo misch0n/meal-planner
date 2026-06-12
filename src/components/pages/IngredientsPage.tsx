@@ -1,11 +1,12 @@
 // Ingredient table (spec §6 / build step 1): browse the bundled base products,
 // add manual entries, edit conversion data. Base products only — single-component
 // foods, the trusted unit of truth.
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { useDB } from "../../store/DB";
 import { newId } from "../../lib/storage";
 import type { Ingredient } from "../../types";
 import { Field } from "../ui";
+import { NUTRIENTS, NUTRIENT_GROUPS, GROUP_LABELS, formatNutrient } from "../../lib/nutrients";
 
 const CATEGORIES = [
   "vegetable",
@@ -18,7 +19,12 @@ const CATEGORIES = [
   "grain",
   "legume",
   "nut",
+  "herb",
+  "spice",
   "sweetener",
+  "condiment",
+  "beverage",
+  "treat",
   "other",
 ];
 
@@ -36,6 +42,7 @@ export function IngredientsPage() {
   const { db, upsertIngredient, deleteIngredient } = useDB();
   const [query, setQuery] = useState("");
   const [editing, setEditing] = useState<Ingredient | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -97,36 +104,93 @@ export function IngredientsPage() {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((i) => (
-              <tr key={i.id}>
-                <td>
-                  {i.name}
-                  {i.name_local && <span className="muted small"> · {i.name_local}</span>}
-                </td>
-                <td>{i.category}</td>
-                <td className="muted small">{i.source}</td>
-                <td className="num">{i.per_100g.kcal}</td>
-                <td className="num">{i.per_100g.protein}</td>
-                <td className="num">{i.per_100g.carb}</td>
-                <td className="num">{i.per_100g.fat}</td>
-                <td className="small muted">
-                  {i.density_g_per_ml ? `${i.density_g_per_ml} g/ml` : ""}
-                  {i.density_g_per_ml && i.piece_weights ? " · " : ""}
-                  {i.piece_weights ? Object.keys(i.piece_weights).join(", ") : ""}
-                </td>
-                <td>
-                  <button className="ghost btn-sm" onClick={() => setEditing({ ...i })}>
-                    Edit
-                  </button>
-                  <button className="danger btn-sm" onClick={() => deleteIngredient(i.id)}>
-                    ✕
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {filtered.map((i) => {
+              const microCount = Object.keys(i.per_100g).filter(
+                (k) => !["kcal", "protein", "carb", "fat"].includes(k),
+              ).length;
+              const open = expandedId === i.id;
+              return (
+                <Fragment key={i.id}>
+                  <tr>
+                    <td>
+                      <button
+                        className="ghost btn-sm"
+                        style={{ border: "none", padding: 0, marginRight: 6 }}
+                        onClick={() => setExpandedId(open ? null : i.id)}
+                        title="Show full nutrient panel"
+                      >
+                        {open ? "▾" : "▸"}
+                      </button>
+                      {i.name}
+                      {i.name_local && <span className="muted small"> · {i.name_local}</span>}
+                      {microCount > 0 && (
+                        <span className="tag" style={{ marginLeft: 6 }}>
+                          +{microCount} micros
+                        </span>
+                      )}
+                    </td>
+                    <td>{i.category}</td>
+                    <td className="muted small">{i.source}</td>
+                    <td className="num">{i.per_100g.kcal}</td>
+                    <td className="num">{i.per_100g.protein}</td>
+                    <td className="num">{i.per_100g.carb}</td>
+                    <td className="num">{i.per_100g.fat}</td>
+                    <td className="small muted">
+                      {i.density_g_per_ml ? `${i.density_g_per_ml} g/ml` : ""}
+                      {i.density_g_per_ml && i.piece_weights ? " · " : ""}
+                      {i.piece_weights ? Object.keys(i.piece_weights).join(", ") : ""}
+                    </td>
+                    <td style={{ whiteSpace: "nowrap" }}>
+                      <button className="ghost btn-sm" onClick={() => setEditing({ ...i })}>
+                        Edit
+                      </button>
+                      <button className="danger btn-sm" onClick={() => deleteIngredient(i.id)}>
+                        ✕
+                      </button>
+                    </td>
+                  </tr>
+                  {open && (
+                    <tr>
+                      <td colSpan={9} style={{ background: "var(--surface-2)" }}>
+                        <NutrientPanel ingredient={i} />
+                      </td>
+                    </tr>
+                  )}
+                </Fragment>
+              );
+            })}
           </tbody>
         </table>
       </div>
+    </div>
+  );
+}
+
+/** Read-only grouped breakdown of every nutrient present on an ingredient. */
+function NutrientPanel({ ingredient }: { ingredient: Ingredient }) {
+  return (
+    <div style={{ display: "flex", gap: 24, flexWrap: "wrap", padding: "6px 2px" }}>
+      {NUTRIENT_GROUPS.map((group) => {
+        const rows = NUTRIENTS.filter(
+          (n) => n.group === group && typeof ingredient.per_100g[n.key] === "number",
+        );
+        if (rows.length === 0) return null;
+        return (
+          <div key={group} style={{ minWidth: 180 }}>
+            <h4 style={{ margin: "2px 0 6px", fontSize: 11, color: "var(--muted)" }}>
+              {GROUP_LABELS[group]}
+            </h4>
+            {rows.map((n) => (
+              <div key={n.key} className="spread small" style={{ gap: 16 }}>
+                <span className="muted">{n.label}</span>
+                <span style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {formatNutrient(n.key, ingredient.per_100g[n.key] as number)}
+                </span>
+              </div>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -150,8 +214,17 @@ function IngredientEditor({
   );
 
   const set = (patch: Partial<Ingredient>) => setDraft((d) => ({ ...d, ...patch }));
-  const setMacro = (k: string, v: number) =>
-    setDraft((d) => ({ ...d, per_100g: { ...d.per_100g, [k]: v } }));
+  const setNutrient = (k: string, raw: string) =>
+    setDraft((d) => {
+      const per = { ...d.per_100g };
+      if (raw === "") {
+        if (k === "kcal" || k === "protein" || k === "carb" || k === "fat") per[k] = 0;
+        else delete per[k];
+      } else {
+        per[k] = +raw;
+      }
+      return { ...d, per_100g: per };
+    });
 
   const save = () => {
     if (!draft.name.trim()) return;
@@ -187,43 +260,32 @@ function IngredientEditor({
       </div>
 
       <h3>Nutrition — per 100 g</h3>
-      <div className="row">
-        <Field label="kcal">
-          <input
-            type="number"
-            value={draft.per_100g.kcal}
-            onChange={(e) => setMacro("kcal", +e.target.value)}
-          />
-        </Field>
-        <Field label="protein g">
-          <input
-            type="number"
-            value={draft.per_100g.protein}
-            onChange={(e) => setMacro("protein", +e.target.value)}
-          />
-        </Field>
-        <Field label="carb g">
-          <input
-            type="number"
-            value={draft.per_100g.carb}
-            onChange={(e) => setMacro("carb", +e.target.value)}
-          />
-        </Field>
-        <Field label="fat g">
-          <input
-            type="number"
-            value={draft.per_100g.fat}
-            onChange={(e) => setMacro("fat", +e.target.value)}
-          />
-        </Field>
-        <Field label="fiber g">
-          <input
-            type="number"
-            value={draft.per_100g.fiber ?? 0}
-            onChange={(e) => setMacro("fiber", +e.target.value)}
-          />
-        </Field>
-      </div>
+      <p className="small muted" style={{ marginTop: 0 }}>
+        Macros are required; leave any micronutrient blank for “no data”.
+      </p>
+      {NUTRIENT_GROUPS.map((group) => (
+        <div key={group} style={{ marginBottom: 10 }}>
+          <h4 style={{ margin: "8px 0 4px", fontSize: 12, color: "var(--muted)" }}>
+            {GROUP_LABELS[group]}
+          </h4>
+          <div className="row">
+            {NUTRIENTS.filter((n) => n.group === group).map((n) => {
+              const v = draft.per_100g[n.key];
+              return (
+                <Field key={n.key} label={`${n.label} (${n.unit})`}>
+                  <input
+                    type="number"
+                    step="any"
+                    style={{ width: 96 }}
+                    value={v ?? ""}
+                    onChange={(e) => setNutrient(n.key, e.target.value)}
+                  />
+                </Field>
+              );
+            })}
+          </div>
+        </div>
+      ))}
 
       <h3>Conversions (optional)</h3>
       <div className="row">
